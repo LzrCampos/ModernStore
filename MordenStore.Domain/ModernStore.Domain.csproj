@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidator.1.0.5\lib\net461\FluentValidator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,6 +44,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValueObject\Email.cs" />
     <Compile Include="ValueObject\Name.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModernStore.Share\ModernStore.Share.csproj">
+      <Project>{ff24e582-39a2-4408-89e3-77c07d0400a1}</Project>
+      <Name>ModernStore.Share</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
