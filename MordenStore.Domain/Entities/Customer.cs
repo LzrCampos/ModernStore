@@ -10,10 +10,10 @@ namespace MordenStore.Domain.Entities
     {
         public Customer(User user, Name name, Email email, DateTime? birthDate)
         {
-            this.User = user;
-            this.Name = name;
-            this.Email = email;
-            this.BirthDate = null;
+            User = user;
+            Name = name;
+            Email = email;
+            BirthDate = null;
 
             new ValidationContract<Customer>(this)
                 .IsRequired(x => x.Name.FirstName, "Nome é obrigatório")

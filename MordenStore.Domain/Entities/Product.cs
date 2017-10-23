@@ -3,9 +3,9 @@ using System;
 
 namespace MordenStore.Domain.Entities
 {
-    public class Products : Entity
+    public class Product : Entity
     {
-        public Products(string title, decimal price, string image, int quantityOnHand)
+        public Product(string title, decimal price, string image, int quantityOnHand)
         {
             Title = title;
             Price = price;
@@ -17,5 +17,7 @@ namespace MordenStore.Domain.Entities
         public decimal Price { get; private set; }
         public string Image { get; private set; }
         public int QuantityOnHand { get; private set; }
+
+        public void DecreaseQuantity(int quantity) => QuantityOnHand -= quantity;
     }
 }

@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{840B63F9-16D4-467B-BFF3-32E42F40D308}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MordenStore.Domain</RootNamespace>
-    <AssemblyName>MordenStore.Domain</AssemblyName>
+    <ProjectGuid>{A49301EF-311C-405F-ADA3-A0B8C3329EF5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ModernStore.Console</RootNamespace>
+    <AssemblyName>ModernStore.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -38,24 +40,26 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderItem.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\User.cs" />
-    <Compile Include="Enuns\EOrderStatus.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValueObject\Email.cs" />
-    <Compile Include="ValueObject\Name.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModernStore.Domain.Test\ModernStore.Domain.Test.csproj">
+      <Project>{c44bc6ab-1bc1-42f9-b13f-4af74de8ad81}</Project>
+      <Name>ModernStore.Domain.Test</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ModernStore.Share\ModernStore.Share.csproj">
       <Project>{ff24e582-39a2-4408-89e3-77c07d0400a1}</Project>
       <Name>ModernStore.Share</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\MordenStore.Domain\ModernStore.Domain.csproj">
+      <Project>{840b63f9-16d4-467b-bff3-32e42f40d308}</Project>
+      <Name>ModernStore.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
