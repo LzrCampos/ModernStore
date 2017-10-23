@@ -1,4 +1,5 @@
-﻿using ModernStore.Share.Entities;
+﻿using FluentValidator;
+using ModernStore.Share.Entities;
 using MordenStore.Domain.ValueObject;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,13 @@ namespace MordenStore.Domain.Entities
             this.Email = email;
             this.BirthDate = null;
 
-            // Validações
-            //if (Name.FirstName.Length < 3)
-            //    Notifications.Add("FirstName", "Nome invalido");
-            //if (Name.LastName.Length < 3)
-            //    Notifications.Add("LastName", "Nome invalido");
-            //if (Email.email.Length < 3)
-            //    Notifications.Add("Email", "Nome invalido");
-
-
+            new ValidationContract<Customer>(this)
+                .IsRequired(x => x.Name.FirstName, "Nome é obrigatório")
+                .HasMaxLenght(x => x.Name.FirstName, 50)
+                .HasMinLenght(x => x.Name.FirstName, 3)
+                .IsRequired(x => x.Name.LastName, "Sobre nome é obrigatório")
+                .HasMaxLenght(x => x.Name.LastName, 50)
+                .HasMinLenght(x => x.Name.LastName, 3);
         }
 
         public User User { get; private set; }

@@ -4,6 +4,11 @@ namespace MordenStore.Domain.ValueObject
 {
     public class Email
     {
-        public string email { get; private set; }
+        public Email(string email)
+        {
+            EmailAdress = email;
+        }
+
+        public string EmailAdress { get; private set; }
     }
 }
