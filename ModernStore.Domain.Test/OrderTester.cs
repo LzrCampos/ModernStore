@@ -18,7 +18,8 @@ namespace ModernStore.Domain.Test
             var user = new User("lazaro", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
-            var customer = new Customer(user, name, email, null);
+            var document = new Document("12345678");
+            var customer = new Customer(user, name, document, email, null);
 
             var mouse = new Product("mouse", 299, "mouse.jpg", 0);
 
@@ -35,7 +36,8 @@ namespace ModernStore.Domain.Test
             var user = new User("lazaro", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
-            var customer = new Customer(user, name, email, null);
+            var document = new Document("12345678");
+            var customer = new Customer(user, name, document, email, null);
 
             var mouse = new Product("mouse", 299, "mouse.jpg", 2);
 
@@ -52,7 +54,8 @@ namespace ModernStore.Domain.Test
             var user = new User("lazaro", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
-            var customer = new Customer(user, name, email, null);
+            var document = new Document("12345678");
+            var customer = new Customer(user, name, document, email, null);
 
             var mouse = new Product("mouse", 299, "mouse.jpg", 3);
 

@@ -8,24 +8,22 @@ namespace MordenStore.Domain.Entities
 {
     public class Customer : Entity
     {
-        public Customer(User user, Name name, Email email, DateTime? birthDate)
+        public Customer(User user, Name name, Document document, Email email, DateTime? birthDate)
         {
             User = user;
             Name = name;
+            Document = document;
             Email = email;
             BirthDate = null;
 
-            new ValidationContract<Customer>(this)
-                .IsRequired(x => x.Name.FirstName, "Nome é obrigatório")
-                .HasMaxLenght(x => x.Name.FirstName, 50)
-                .HasMinLenght(x => x.Name.FirstName, 3)
-                .IsRequired(x => x.Name.LastName, "Sobre nome é obrigatório")
-                .HasMaxLenght(x => x.Name.LastName, 50)
-                .HasMinLenght(x => x.Name.LastName, 3);
+            AddNotifications(Name.Notifications);
+            AddNotifications(Document.Notifications);
+            AddNotifications(Email.Notifications);
         }
 
         public User User { get; private set; }
         public Name Name { get; private set; }
+        public Document Document { get; private set; }
         public Email Email { get; private set; }
         public DateTime? BirthDate { get; set; }
 
