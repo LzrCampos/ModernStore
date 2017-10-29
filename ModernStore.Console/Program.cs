@@ -1,4 +1,5 @@
-﻿using MordenStore.Domain.Commands;
+﻿using MordenStore.Domain.CommandHandlers;
+using MordenStore.Domain.Commands;
 using MordenStore.Domain.Entities;
 using MordenStore.Domain.Repositories;
 using MordenStore.Domain.ValueObject;
@@ -30,6 +31,7 @@ namespace ModernStore.ConsoleApp
             GenerateOrder(
                 new FakeCustomerRepository(),
                 new FakeProductRepository(),
+                new FakeOrderRepository(),
                 command);
             
 
@@ -40,25 +42,17 @@ namespace ModernStore.ConsoleApp
         public static void GenerateOrder(
                 ICustomerRepository customerRepository,
                 IProductRepository productRepository,
+                IOrderRepository orderRepository,
                 RegisterOrderCommand command)
         {
-            var customer = customerRepository.GetByUserId(command.Customer);
+            var handler = new OrderCommandHandler(customerRepository,
+                productRepository,
+                orderRepository);
 
-            var order = new Order(customer, command.DeliveryFee, command.Discount);
+                handler.Handle(command);
 
-            foreach(var item in command.Items)
-            {
-                var product = productRepository.Get(item.Product);
-                order.AddItem(new OrderItem(product, item.Quantity));
-            }
-
-            Console.WriteLine($"Numero do pedido :{ order.Number}");
-            Console.WriteLine($"Data :{order.CreationDate:dd/MM/yyyy}");
-            Console.WriteLine($"Desconto :{order.Discount}");
-            Console.WriteLine($"Taxa de entrega :{order.DeliveryFee}");
-            Console.WriteLine($"Subtotal :{order.SubTotal()}");
-            Console.WriteLine($"Total :{order.Total()}");
-            Console.WriteLine($"Cliente :{order.Customer.ToString()}");
+            if (handler.IsValid())
+                System.Console.WriteLine("Pedido cadastrado com sucesso");
         }
 
         public class FakeProductRepository : IProductRepository
@@ -96,6 +90,14 @@ namespace ModernStore.ConsoleApp
             {
 
             }
+        }
+
+        public class FakeOrderRepository : IOrderRepository
+        {            
+            public void Save(Order order)
+            {
+
+            }            
         }
     }
 }
