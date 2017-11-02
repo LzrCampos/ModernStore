@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Domain", "MordenStore.Domain\ModernStore.Domain.csproj", "{840B63F9-16D4-467B-BFF3-32E42F40D308}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Share", "ModernStore.Share\ModernStore.Share.csproj", "{FF24E582-39A2-4408-89E3-77C07D0400A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Shared", "ModernStore.Share\ModernStore.Shared.csproj", "{FF24E582-39A2-4408-89E3-77C07D0400A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Domain.Test", "ModernStore.Domain.Test\ModernStore.Domain.Test.csproj", "{C44BC6AB-1BC1-42F9-B13F-4AF74DE8AD81}"
 EndProject

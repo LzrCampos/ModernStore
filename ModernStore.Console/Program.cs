@@ -9,95 +9,95 @@ using System.Collections.Generic;
 
 namespace ModernStore.ConsoleApp
 {
-    class Program
+   class Program
     {
-        static void Main(string[] args)
+       static void Main(string[] args)
         {
-            var command = new RegisterOrderCommand
-            {
-                Customer = Guid.NewGuid(),
-                DeliveryFee = 8,
-                Discount = 10,
-                Items = new List<RegisterOrderItemCommand>
-                {
-                    new RegisterOrderItemCommand
-                    {
-                        Product = Guid.NewGuid(),
-                        Quantity = 5
-                    }
-                }
-            };
+//            var command = new RegisterOrderCommand
+//            {
+//                Customer = Guid.NewGuid(),
+//                DeliveryFee = 8,
+//                Discount = 10,
+//                Items = new List<RegisterOrderItemCommand>
+//                {
+//                    new RegisterOrderItemCommand
+//                    {
+//                        Product = Guid.NewGuid(),
+//                        Quantity = 5
+//                    }
+//                }
+//            };
 
-            GenerateOrder(
-                new FakeCustomerRepository(),
-                new FakeProductRepository(),
-                new FakeOrderRepository(),
-                command);
+//            GenerateOrder(
+//                new FakeCustomerRepository(),
+//                new FakeProductRepository(),
+//                new FakeOrderRepository(),
+//                command);
             
 
-            Console.ReadKey();
+//            Console.ReadKey();
 
-        }
+//        }
 
-        public static void GenerateOrder(
-                ICustomerRepository customerRepository,
-                IProductRepository productRepository,
-                IOrderRepository orderRepository,
-                RegisterOrderCommand command)
-        {
-            var handler = new OrderCommandHandler(customerRepository,
-                productRepository,
-                orderRepository);
+//        public static void GenerateOrder(
+//                ICustomerRepository customerRepository,
+//                IProductRepository productRepository,
+//                IOrderRepository orderRepository,
+//                RegisterOrderCommand command)
+//        {
+//            var handler = new OrderCommandHandler(customerRepository,
+//                productRepository,
+//                orderRepository);
 
-                handler.Handle(command);
+//                handler.Handle(command);
 
-            if (handler.IsValid())
-                System.Console.WriteLine("Pedido cadastrado com sucesso");
-        }
+//            if (handler.IsValid())
+//                System.Console.WriteLine("Pedido cadastrado com sucesso");
+//        }
 
-        public class FakeProductRepository : IProductRepository
-        {
-            public Product Get(Guid id)
-            {
-                return new Product("Mouse", 299, "", 50);
-            }
+//        public class FakeProductRepository : IProductRepository
+//        {
+//            public Product Get(Guid id)
+//            {
+//                return new Product("Mouse", 299, "", 50);
+//            }
 
-            public IEnumerable<Product> Get(List<Guid> Ids)
-            {
-                throw new NotImplementedException();
-            }
-        }
+//            public IEnumerable<Product> Get(List<Guid> Ids)
+//            {
+//                throw new NotImplementedException();
+//            }
+//        }
 
-        public class FakeCustomerRepository : ICustomerRepository
-        {
-            public Customer Get(Guid id)
-            {
-                return null;
-            }
+//        public class FakeCustomerRepository : ICustomerRepository
+//        {
+//            public Customer Get(Guid id)
+//            {
+//                return null;
+//            }
 
-            public Customer GetByUserId(Guid id)
-            {
-                return new Customer(
-                    new User("lazaro", "1234"),
-                    new Name("Lazaro", "Campos"),
-                    new Document("72546524135"),
-                    new Email("lazaro@email.com"),
-                    null
-                );
-            }
+//            public Customer GetByUserId(Guid id)
+//            {
+//                return new Customer(
+//                    new User("lazaro", "1234"),
+//                    new Name("Lazaro", "Campos"),
+//                    new Document("72546524135"),
+//                    new Email("lazaro@email.com"),
+//                    null
+//                );
+//            }
 
-            public void Update(Customer customer)
-            {
+//            public void Update(Customer customer)
+//            {
 
-            }
-        }
+//            }
+//        }
 
-        public class FakeOrderRepository : IOrderRepository
-        {            
-            public void Save(Order order)
-            {
+//        public class FakeOrderRepository : IOrderRepository
+//        {            
+//            public void Save(Order order)
+//            {
 
-            }            
+//            }            
         }
     }
 }

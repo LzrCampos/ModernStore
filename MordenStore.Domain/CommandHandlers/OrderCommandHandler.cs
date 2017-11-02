@@ -1,5 +1,6 @@
 ﻿using FluentValidator;
 using ModernStore.Share.Commands;
+using MordenStore.Domain.CommandResults;
 using MordenStore.Domain.Commands;
 using MordenStore.Domain.Entities;
 using MordenStore.Domain.Repositories;
@@ -22,7 +23,7 @@ namespace MordenStore.Domain.CommandHandlers
             _orderRepository = orderRepository;
         }
 
-        public void Handle(RegisterOrderCommand command)
+        public ICommandResult Handle(RegisterOrderCommand command)
         {
             // Instacia o repositorio
             var customer = _customerRepository.GetByUserId(command.Customer);
@@ -41,8 +42,10 @@ namespace MordenStore.Domain.CommandHandlers
             AddNotifications(order.Notifications);
 
             // Persiste no banco
-            if (order.IsValid())
+            if (IsValid())
                 _orderRepository.Save(order);
+
+            return new RegisterOrderCommandResult(order.Number);
         }
     }
 }

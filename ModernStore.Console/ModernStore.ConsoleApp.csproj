@@ -52,9 +52,9 @@
       <Project>{c44bc6ab-1bc1-42f9-b13f-4af74de8ad81}</Project>
       <Name>ModernStore.Domain.Test</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModernStore.Share\ModernStore.Share.csproj">
+    <ProjectReference Include="..\ModernStore.Share\ModernStore.Shared.csproj">
       <Project>{ff24e582-39a2-4408-89e3-77c07d0400a1}</Project>
-      <Name>ModernStore.Share</Name>
+      <Name>ModernStore.Shared</Name>
     </ProjectReference>
     <ProjectReference Include="..\MordenStore.Domain\ModernStore.Domain.csproj">
       <Project>{840b63f9-16d4-467b-bff3-32e42f40d308}</Project>

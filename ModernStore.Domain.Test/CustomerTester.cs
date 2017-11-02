@@ -12,7 +12,7 @@ namespace ModernStore.Domain.Test
         [TestCategory("Customer - NewCustomer")]
         public void GivenAnInvalidFirstNameDhoulReturnANotification()
         {
-            var user = new User("lazaro", "123");
+            var user = new User("lazaro", "123", "123");
             var email = new Email("lazaro@email.com");
             var name = new Name("lazaro", "campos");
             var document = new Document("07364244581");

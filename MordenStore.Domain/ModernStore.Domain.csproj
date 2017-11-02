@@ -38,8 +38,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandHandlers\CustomerCommandHandler.cs" />
+    <Compile Include="CommandResults\RegisterCustomerCommandResult.cs" />
+    <Compile Include="CommandResults\RegisterOrderCommandResult.cs" />
+    <Compile Include="Commands\RegisterCustomerCommand.cs" />
     <Compile Include="Commands\RegisterOrderCommand.cs" />
     <Compile Include="Commands\RegisterOrderItemCommand.cs" />
+    <Compile Include="Commands\UpdateCustomerCommand.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\OrderItem.cs" />
@@ -51,18 +56,30 @@
     <Compile Include="Repositories\ICustomerRepository.cs" />
     <Compile Include="Repositories\IOrderRepository.cs" />
     <Compile Include="Repositories\IProductRepository.cs" />
+    <Compile Include="Resources\EmailTenplates.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailTenplates.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IEmailService.cs" />
     <Compile Include="ValueObject\Document.cs" />
     <Compile Include="ValueObject\Email.cs" />
     <Compile Include="ValueObject\Name.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ModernStore.Share\ModernStore.Share.csproj">
+    <ProjectReference Include="..\ModernStore.Share\ModernStore.Shared.csproj">
       <Project>{ff24e582-39a2-4408-89e3-77c07d0400a1}</Project>
-      <Name>ModernStore.Share</Name>
+      <Name>ModernStore.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EmailTenplates.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailTenplates.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

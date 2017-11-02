@@ -15,7 +15,7 @@ namespace ModernStore.Domain.Test
         [TestCategory("Order - NewOrder")]
         public void GivenAnOutOfStovkProductItShowIdReturnAnError()
         {
-            var user = new User("lazaro", "adm123");
+            var user = new User("lazaro", "adm123", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
             var document = new Document("12345678");
@@ -33,7 +33,7 @@ namespace ModernStore.Domain.Test
         [TestCategory("Order - NewOrder")]
         public void GivenAnInStockProductItShouldUpdateQuantityOnHand()
         {
-            var user = new User("lazaro", "adm123");
+            var user = new User("lazaro", "adm123", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
             var document = new Document("12345678");
@@ -51,7 +51,7 @@ namespace ModernStore.Domain.Test
         [TestCategory("Order - NewOrder")]
         public void GivenAValidOrderItSholdReturn()
         {
-            var user = new User("lazaro", "adm123");
+            var user = new User("lazaro", "adm123", "adm123");
             var name = new Name("Lázaro", "Campos");
             var email = new Email("lazaro@email.com");
             var document = new Document("12345678");
