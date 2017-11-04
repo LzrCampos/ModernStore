@@ -2,7 +2,7 @@
 using ModernStore.Share.Commands;
 using System.Collections.Generic;
 
-namespace MordenStore.Domain.Commands
+namespace MordenStore.Domain.Commands.Inputs
 {
     public class RegisterOrderCommand : ICommand
     {

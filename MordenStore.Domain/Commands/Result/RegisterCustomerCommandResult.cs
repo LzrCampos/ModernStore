@@ -1,7 +1,7 @@
 ﻿using ModernStore.Share.Commands;
 using System;
 
-namespace MordenStore.Domain.CommandResults
+namespace MordenStore.Domain.Commands.Result
 {
     public class RegisterCustomerCommandResult : ICommandResult
     {

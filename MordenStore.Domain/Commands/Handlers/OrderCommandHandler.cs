@@ -1,12 +1,12 @@
 ﻿using FluentValidator;
 using ModernStore.Share.Commands;
-using MordenStore.Domain.CommandResults;
-using MordenStore.Domain.Commands;
+using MordenStore.Domain.Commands.Inputs;
+using MordenStore.Domain.Commands.Result;
 using MordenStore.Domain.Entities;
 using MordenStore.Domain.Repositories;
 using System;
 
-namespace MordenStore.Domain.CommandHandlers
+namespace MordenStore.Domain.Commands.Handlers
 {
     public class OrderCommandHandler : Notifiable, ICommandHandler<RegisterOrderCommand>
     {

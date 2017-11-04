@@ -2,7 +2,7 @@
 using System;
 
 
-namespace MordenStore.Domain.Commands
+namespace MordenStore.Domain.Commands.Inputs
 {
     public class RegisterOrderItemCommand : ICommand
     {

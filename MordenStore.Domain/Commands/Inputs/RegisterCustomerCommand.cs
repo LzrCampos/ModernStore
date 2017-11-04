@@ -1,7 +1,7 @@
 ﻿using ModernStore.Share.Commands;
 using System;
 
-namespace MordenStore.Domain.Commands
+namespace MordenStore.Domain.Commands.Inputs
 {
     public class RegisterCustomerCommand : ICommand
     {
