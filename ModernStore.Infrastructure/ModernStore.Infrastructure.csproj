@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Contexts\ModernStoreDataContext.cs" />
     <Compile Include="Mappings\CustomerMap.cs" />
+    <Compile Include="Mappings\OrderMap.cs" />
     <Compile Include="Migrations\201711050003520_v1.cs" />
     <Compile Include="Migrations\201711050003520_v1.Designer.cs">
       <DependentUpon>201711050003520_v1.cs</DependentUpon>

@@ -1,10 +1,5 @@
 ﻿using MordenStore.Domain.Entities;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModernStore.Infrastructure.Mappings
 {
@@ -15,12 +10,12 @@ namespace ModernStore.Infrastructure.Mappings
             ToTable("Customer");
             HasKey(x => x.Id);
             Property(x => x.BirthDate);
-            Property(x => x.Document.DocumentNumber);
-            Property(x => x.Email.EmailAdress);
-            Property(x => x.Name.FirstName);
-            Property(x => x.Name.LastName);
-            Property(x => x.User.UserName);
-            Property(x => x.User.Password);
+            Property(x => x.Document.DocumentNumber).IsRequired().HasMaxLength(11).IsFixedLength();
+            Property(x => x.Email.EmailAdress).IsRequired().HasMaxLength(160);
+            Property(x => x.Name.FirstName).IsRequired().HasMaxLength(60);
+            Property(x => x.Name.LastName).IsRequired().HasMaxLength(60);
+            Property(x => x.User.UserName).IsRequired().HasMaxLength(20);
+            Property(x => x.User.Password).IsRequired().HasMaxLength(32).IsFixedLength();
             Property(x => x.User.Active);
 
         }

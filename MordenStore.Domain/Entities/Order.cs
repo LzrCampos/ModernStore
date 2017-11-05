@@ -31,7 +31,7 @@ namespace MordenStore.Domain.Entities
         public DateTime CreationDate { get; private set; }
         public string Number { get; private set; }
         public EOrderStatus Status { get; private set; }
-        public IReadOnlyCollection<OrderItem> Items => _items.ToArray();
+        public ICollection<OrderItem> Items => _items.ToArray();
         public decimal DeliveryFee { get; private set; }
         public decimal Discount { get; private set; }
 
