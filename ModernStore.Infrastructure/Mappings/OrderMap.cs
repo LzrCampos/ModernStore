@@ -1,5 +1,4 @@
 ﻿using MordenStore.Domain.Entities;
-using System;
 using System.Data.Entity.ModelConfiguration;
 
 namespace ModernStore.Infrastructure.Mappings

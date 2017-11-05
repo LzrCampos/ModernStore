@@ -1,7 +1,7 @@
-﻿using System.Data.Entity.ModelConfiguration;
-using MordenStore.Domain.Entities;
+﻿using MordenStore.Domain.Entities;
+using System.Data.Entity.ModelConfiguration;
 
-namespace ModernStore.Infra.Mappings
+namespace ModernStore.Infrastructure.Mappings
 {
     public class OrderItemMap : EntityTypeConfiguration<OrderItem>
     {

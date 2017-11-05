@@ -7,13 +7,13 @@ namespace ModernStore.Infrastructure.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class v1 : IMigrationMetadata
+    public sealed partial class v2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(v1));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(v2));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711050003520_v1"; }
+            get { return "201711050127370_v2"; }
         }
         
         string IMigrationMetadata.Source

@@ -50,9 +50,14 @@
     <Compile Include="Mappings\OrderItemMap.cs" />
     <Compile Include="Mappings\OrderMap.cs" />
     <Compile Include="Mappings\ProductMap.cs" />
-    <Compile Include="Migrations\201711050003520_v1.cs" />
-    <Compile Include="Migrations\201711050003520_v1.Designer.cs">
-      <DependentUpon>201711050003520_v1.cs</DependentUpon>
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Migrations\201711050116259_v1.cs" />
+    <Compile Include="Migrations\201711050116259_v1.Designer.cs">
+      <DependentUpon>201711050116259_v1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711050127370_v2.cs" />
+    <Compile Include="Migrations\201711050127370_v2.Designer.cs">
+      <DependentUpon>201711050127370_v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,8 +77,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711050003520_v1.resx">
-      <DependentUpon>201711050003520_v1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711050116259_v1.resx">
+      <DependentUpon>201711050116259_v1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711050127370_v2.resx">
+      <DependentUpon>201711050127370_v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,6 +5,10 @@ namespace MordenStore.Domain.ValueObject
 {
     public class Document : Notifiable
     {
+        protected Document()
+        {
+
+        }
         public Document(string documentNumber)
         {
             DocumentNumber = documentNumber;

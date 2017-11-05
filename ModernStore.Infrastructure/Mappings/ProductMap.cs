@@ -1,7 +1,7 @@
 ﻿using MordenStore.Domain.Entities;
 using System.Data.Entity.ModelConfiguration;
 
-namespace ModernStore.Infra.Mappings
+namespace ModernStore.Infrastructure.Mappings
 {
     public class ProductMap : EntityTypeConfiguration<Product>
     {

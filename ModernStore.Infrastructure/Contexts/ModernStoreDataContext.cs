@@ -1,4 +1,5 @@
-﻿using MordenStore.Domain.Entities;
+﻿using ModernStore.Infrastructure.Mappings;
+using MordenStore.Domain.Entities;
 using System;
 using System.Data.Entity;
 
@@ -15,5 +16,14 @@ namespace ModernStore.Infrastructure.Contexts
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new CustomerMap());
+            modelBuilder.Configurations.Add(new OrderMap());
+            modelBuilder.Configurations.Add(new OrderItemMap());
+            modelBuilder.Configurations.Add(new ProductMap());
+            modelBuilder.Configurations.Add(new UserMap());
+        }
     }
 }
