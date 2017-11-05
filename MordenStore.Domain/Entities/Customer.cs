@@ -8,6 +8,10 @@ namespace MordenStore.Domain.Entities
 {
     public class Customer : Entity
     {
+        protected Customer()
+        {
+
+        }
         public Customer(User user, Name name, Document document, Email email, DateTime? birthDate)
         {
             User = user;

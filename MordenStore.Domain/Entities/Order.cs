@@ -9,6 +9,10 @@ namespace MordenStore.Domain.Entities
 {
     public class Order : Entity
     {
+        protected Order()
+        {
+                
+        }
         private readonly IList<OrderItem> _items;
 
         public Order(Customer customer, decimal deliveryFee, decimal discount)

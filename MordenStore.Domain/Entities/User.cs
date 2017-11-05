@@ -7,6 +7,10 @@ namespace MordenStore.Domain.Entities
 {
     public class User : Entity
     {
+        protected User()
+        {
+
+        }
         public User(string userName, string password, string confirmPassword )
         {
             //Id = Guid.NewGuid();
