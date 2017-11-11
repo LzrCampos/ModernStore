@@ -1,6 +1,8 @@
-﻿namespace MordenStore.Domain.Commands.Result
+﻿using ModernStore.Share.Commands;
+
+namespace MordenStore.Domain.Commands.Result
 {
-    public class GetCustomerCommandResult
+    public class GetCustomerCommandResult : ICommandResult
     {
         public string Name { get; set; }
         public string Document { get; set; }

@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Commands\Handlers\CustomerCommandHandler.cs" />
     <Compile Include="Commands\Result\GetCustomerCommandResult.cs" />
+    <Compile Include="Commands\Result\GetProductListCommandResult.cs" />
     <Compile Include="Commands\Result\RegisterCustomerCommandResult.cs" />
     <Compile Include="Commands\Result\RegisterOrderCommandResult.cs" />
     <Compile Include="Commands\Inputs\RegisterCustomerCommand.cs" />

@@ -5,6 +5,8 @@ using ModernStore.Infrastructure.Contexts;
 using System.Data.Entity;
 using System.Linq;
 using MordenStore.Domain.Commands.Result;
+using System.Data.SqlClient;
+using Dapper;
 
 namespace ModernStore.Infrastructure.Repositories
 {
@@ -25,21 +27,32 @@ namespace ModernStore.Infrastructure.Repositories
 
         public GetCustomerCommandResult Get(string username)
         {
-            return _context
-                .Customers
-                .Include(x => x.User)
-                .AsNoTracking()
-                .Select(x => new GetCustomerCommandResult
-                {
-                    Name = x.Name.ToString(),
-                    Document = x.Document.DocumentNumber,
-                    Active = x.User.Active.ToString(),
-                    Email = x.Email.EmailAdress,
-                    Password = x.User.Password,
-                    Username = x.User.UserName
+            using (var conn = new SqlConnection(@"Server=.\SQLEXPRESS; Database=ModernStore; User Id=lazaro; password= 5289"))
+            {
+                var query = "SELECT * FROM [dbo].[GetCustomerInfoView] WHERE [Active] = 1 AND [UserName] = @username";
+                conn.Open();
+                return conn
+                    .Query<GetCustomerCommandResult>(query,
+                    new { username = username})
+                    .FirstOrDefault();
+            }
 
-                })
-                .FirstOrDefault(x => x.Username == username);
+            //return _context
+            //    .Customers
+            //    .Include(x => x.User)
+            //    .AsNoTracking()
+            //    .Select(x => new GetCustomerCommandResult
+            //    {
+            //        Name = x.Name.ToString(),
+            //        Document = x.Document.DocumentNumber,
+            //        Active = x.User.Active.ToString(),
+            //        Email = x.Email.EmailAdress,
+            //        Password = x.User.Password,
+            //        Username = x.User.UserName
+
+            //    })
+            //    .FirstOrDefault(x => x.Username == username);
+
         }
     }
 }

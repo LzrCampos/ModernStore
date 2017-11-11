@@ -4,6 +4,9 @@ using System.Linq;
 using MordenStore.Domain.Entities;
 using System.Collections.Generic;
 using ModernStore.Infrastructure.Contexts;
+using MordenStore.Domain.Commands.Result;
+using System.Data.SqlClient;
+using Dapper;
 
 namespace ModernStore.Infrastructure.Repositories
 {
@@ -11,14 +14,24 @@ namespace ModernStore.Infrastructure.Repositories
     {
         private readonly ModernStoreDataContext _context;
 
+        public ProductRepository(ModernStoreDataContext context)
+        {
+            _context = context;
+        }
+
         public Product Get(Guid id)
         {
             return _context.Products.AsNoTracking().FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<Product> Get(List<Guid> ids)
+        public IEnumerable<GetProductListCommandResult> Get()
         {
-            throw new NotImplementedException();
+            using (var conn = new SqlConnection(@"Server=.\SQLEXPRESS; Database=ModernStore; User Id=lazaro; password= 5289"))
+            {
+                var query = "SELECT [Id], [Title], [Price], [Image] FROM [dbo].[Product]";
+                conn.Open();
+                return conn.Query<GetProductListCommandResult>(query);
+            }
         }
     }
 }
