@@ -1,17 +1,16 @@
-﻿using MordenStore.Domain.Entities;
+﻿using MordenStore.Domain.Commands.Result;
+using MordenStore.Domain.Entities;
 using System;
 
 namespace MordenStore.Domain.Repositories
 {
     public interface ICustomerRepository
     {
-        Customer Get(Guid Id);
+        Customer Get(Guid id);
 
-        Customer Get(string document);
+        GetCustomerCommandResult Get(string username);
 
-        Customer GetByUserId(Guid Id);
-
-        bool DocumentExist(string Document);
+        bool DocumentExist(string document);
 
         void Save(Customer customer);
     }

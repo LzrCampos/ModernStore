@@ -26,7 +26,7 @@ namespace MordenStore.Domain.Commands.Handlers
         public ICommandResult Handle(RegisterOrderCommand command)
         {
             // Instacia o repositorio
-            var customer = _customerRepository.GetByUserId(command.Customer);
+            var customer = _customerRepository.Get(command.Customer);
 
             // Gera um novo pedido
             var order = new Order(customer, command.DeliveryFee, command.Discount);
