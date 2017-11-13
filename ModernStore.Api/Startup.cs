@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using ModernStore.Infrastructure.Contexts;
+using ModernStore.Infrastructure.Repositories;
+using ModernStore.Infrastructure.Transaction;
+using MordenStore.Domain.Repositories;
 
 namespace ModernStore.Api
 {
@@ -13,6 +17,14 @@ namespace ModernStore.Api
         {
             services.AddMvcCore();
             services.AddCors();
+            
+
+            services.AddScoped<ModernStoreDataContext, ModernStoreDataContext>();
+            services.AddTransient<IUow, Uow>();
+
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IOrderRepository, OrderRepositoriy>();
+            services.AddTransient<IProductRepository, ProductRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,30 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MordenStore.Domain.Repositories;
 using System;
 
 namespace ModernStore.Api.Controllerss
 {
-    
     public class ProductController : ControllerBase
     {
-        [HttpGet]
-        [Route("products")]
-        public string Get()
+        private readonly IProductRepository _repository;
+
+        public ProductController(IProductRepository repository)
         {
-            return "Listando todos os prdutos";
+            _repository = repository;
         }
 
         [HttpGet]
-        [Route("products/{id}")]
-        public string Product(Guid id)
-        {
-            return $"produto {id}";
-        }
-
-        [HttpPost]
         [Route("products")]
-        public string Post()
+        public object Get()
         {
-            return "Criando todos os prdutos";
+            return _repository.Get();
         }
     }
 }

@@ -14,5 +14,7 @@ namespace ModernStore.Api
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
                 .Build();
+
     }
 }
+

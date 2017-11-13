@@ -28,7 +28,7 @@ namespace ModernStore.Infrastructure.Repositories
         {
             using (var conn = new SqlConnection(@"Server=.\SQLEXPRESS; Database=ModernStore; User Id=lazaro; password= 5289"))
             {
-                var query = "SELECT [Id], [Title], [Price], [Image] FROM [dbo].[Product]";
+                var query = "SELECT [Id], [Title], [Image], [Price] FROM [dbo].[Product]";
                 conn.Open();
                 return conn.Query<GetProductListCommandResult>(query);
             }
