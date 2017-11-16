@@ -1,33 +1,35 @@
-﻿using MordenStore.Domain.ValueObject;
+﻿using FluentValidator;
+using ModernStore.Share.Entities;
+using MordenStore.Domain.ValueObject;
 using System;
 using System.Collections.Generic;
 
 namespace MordenStore.Domain.Entities
 {
-    public class Customer
+    public class Customer : Entity
     {
-        public Customer(User user, Name name, Email email, DateTime? birthDate)
+        protected Customer()
         {
-            this.User = user;
-            this.Name = name;
-            this.Email = email;
-            this.BirthDate = null;
 
-            // Validações
-            if (Name.FirstName.Length < 3)
-                Notifications.Add("FirstName", "Nome invalido");
-            if (Name.LastName.Length < 3)
-                Notifications.Add("LastName", "Nome invalido");
-            if (Email.email.Length < 3)
-                Notifications.Add("Email", "Nome invalido");
+        }
+        public Customer(User user, Name name, Document document, Email email, DateTime? birthDate)
+        {
+            User = user;
+            Name = name;
+            Document = document;
+            Email = email;
+            BirthDate = null;
+
+            AddNotifications(Name.Notifications);
+            AddNotifications(Document.Notifications);
+            AddNotifications(Email.Notifications);
         }
 
         public User User { get; private set; }
         public Name Name { get; private set; }
+        public Document Document { get; private set; }
         public Email Email { get; private set; }
         public DateTime? BirthDate { get; set; }
-
-        public Dictionary<string, string> Notifications { get; private set; }
 
         public override string ToString()
         {

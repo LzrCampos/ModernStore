@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModernStore.Share
+namespace MordenStore.Domain.Commands.Inputs
 {
-    public class Class1
+    public class UpdateCustomerCommand
     {
+
     }
 }
