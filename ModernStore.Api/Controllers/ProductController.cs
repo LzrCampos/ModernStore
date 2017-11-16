@@ -15,9 +15,9 @@ namespace ModernStore.Api.Controllerss
 
         [HttpGet]
         [Route("products")]
-        public object Get()
+        public IActionResult Get()
         {
-            return _repository.Get();
+            return Ok(_repository.Get());
         }
     }
 }

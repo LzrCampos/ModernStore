@@ -30,7 +30,8 @@ namespace ModernStore.Infrastructure.Repositories
             {
                 var query = "SELECT [Id], [Title], [Image], [Price] FROM [dbo].[Product]";
                 conn.Open();
-                return conn.Query<GetProductListCommandResult>(query);
+                var y = conn.Query<GetProductListCommandResult>(query).ToList();
+                return y;
             }
         }
     }
