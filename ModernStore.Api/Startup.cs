@@ -4,8 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ModernStore.Infrastructure.Contexts;
 using ModernStore.Infrastructure.Repositories;
+using ModernStore.Infrastructure.Services;
 using ModernStore.Infrastructure.Transaction;
+using MordenStore.Domain.Commands.Handlers;
 using MordenStore.Domain.Repositories;
+using MordenStore.Domain.Services;
 
 namespace ModernStore.Api
 {
@@ -25,6 +28,11 @@ namespace ModernStore.Api
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IOrderRepository, OrderRepositoriy>();
             services.AddTransient<IProductRepository, ProductRepository>();
+
+            services.AddTransient<CustomerCommandHandler, CustomerCommandHandler>();
+            services.AddTransient<OrderCommandHandler, OrderCommandHandler>();
+
+            services.AddTransient<IEmailService, EmailServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

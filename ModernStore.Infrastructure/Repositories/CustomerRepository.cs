@@ -1,12 +1,12 @@
-﻿using MordenStore.Domain.Repositories;
-using System;
-using MordenStore.Domain.Entities;
-using ModernStore.Infrastructure.Contexts;
+﻿using System;
 using System.Data.Entity;
-using System.Linq;
-using MordenStore.Domain.Commands.Result;
 using System.Data.SqlClient;
+using System.Linq;
 using Dapper;
+using MordenStore.Domain.Repositories;
+using ModernStore.Infrastructure.Contexts;
+using MordenStore.Domain.Entities;
+using MordenStore.Domain.Commands.Result;
 
 namespace ModernStore.Infrastructure.Repositories
 {
