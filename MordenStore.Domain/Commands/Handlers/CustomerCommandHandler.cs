@@ -7,7 +7,6 @@ using MordenStore.Domain.Repositories;
 using MordenStore.Domain.Resources;
 using MordenStore.Domain.Services;
 using MordenStore.Domain.ValueObject;
-using System;
 
 namespace MordenStore.Domain.Commands.Handlers
 {
@@ -45,20 +44,24 @@ namespace MordenStore.Domain.Commands.Handlers
             AddNotifications(user.Notifications);
             AddNotifications(customer.Notifications);
 
-            // Passo4. Inserir no banco
-            if (IsValid())
+            //Passo4. 
+            if (!IsValid())
             {
-                _customerRepository.Save(customer);
+                return null;
             }
 
-            // Passo5. Enviar E-mail de boas vindas 
+            // Passo5. Inserir no banco
+            _customerRepository.Save(customer);
+
+
+            // Passo6. Enviar E-mail de boas vindas 
             _emailService.Send(
                 customer.Name.ToString(),
                 customer.Email.EmailAdress,
                 string.Format(EmailTenplates.WelcomeEmailTitle, customer.Name.ToString()),
                 string.Format(EmailTenplates.WelcomeEmailBody, customer.Name.ToString()));
 
-            // Passo6. Retornar algo
+            // Passo7. Retornar algo
             return new RegisterCustomerCommandResult(customer.Id, customer.Name.ToString());
         }
     }
