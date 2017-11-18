@@ -25,7 +25,7 @@ namespace MordenStore.Domain.Commands.Handlers
         public ICommandResult Handle(RegisterCustomerCommand command)
         {
             // Passo1. Verificar se o CPF já existe
-            if (!_customerRepository.DocumentExist(command.Document))
+            if (_customerRepository.DocumentExist(command.Document))
             {
                 AddNotification("Document", "CPF já em uso");
                 return null;
@@ -55,7 +55,7 @@ namespace MordenStore.Domain.Commands.Handlers
             _emailService.Send(
                 customer.Name.ToString(),
                 customer.Email.EmailAdress,
-                string.Format(EmailTenplates.WelcomeEmailTitle,customer.Name.ToString()),
+                string.Format(EmailTenplates.WelcomeEmailTitle, customer.Name.ToString()),
                 string.Format(EmailTenplates.WelcomeEmailBody, customer.Name.ToString()));
 
             // Passo6. Retornar algo
