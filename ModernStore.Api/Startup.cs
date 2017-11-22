@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using ModernStore.Infrastructure.Contexts;
 using ModernStore.Infrastructure.Repositories;
 using ModernStore.Infrastructure.Services;
@@ -9,13 +8,18 @@ using ModernStore.Infrastructure.Transaction;
 using MordenStore.Domain.Commands.Handlers;
 using MordenStore.Domain.Repositories;
 using MordenStore.Domain.Services;
+using System.Text;
 
 namespace ModernStore.Api
 {
     public class Startup
     {
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
+        private const string ISSUER = "c1f51f42";
+        private const string AUDIENCE = "c6bbbb645024";
+        private const string SECRET_KEY = "c1f51f42-5727-4d15-b787-c6bbbb645024";
+
+        private readonly SymmetricSecurityKey _signingKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(SECRET_KEY));
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().AddJsonFormatters();
